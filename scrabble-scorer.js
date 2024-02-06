@@ -1,8 +1,7 @@
 // This assignment is inspired by a problem on Exercism (https://exercism.org/tracks/javascript/exercises/etl) that demonstrates Extract-Transform-Load using Scrabble's scoring system. 
 
 const input = require("readline-sync");
-console.log("Let's play some scrabble!");
-let letterPoints = input.question("Enter a word:")
+let word = "";
 
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
@@ -12,6 +11,10 @@ const oldPointStructure = {
   5: ['K'],
   8: ['J', 'X'],
   10: ['Q', 'Z']
+};
+
+const superSimpleScorer = {
+   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T', 'D', 'G', 'B', 'C', 'M', 'P', 'F', 'H', 'V', 'W', 'Y', 'K', 'J', 'X', 'Q', 'Z']
 };
 
 function oldScrabbleScorer(word) {
@@ -30,32 +33,34 @@ function oldScrabbleScorer(word) {
 	}
 	return letterPoints;
  }
- console.log(oldScrabbleScorer(letterPoints));
+ console.log(oldScrabbleScorer(word));
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
+
 function initialPrompt() {
-   
+   console.log("Let's play some scrabble!");
+   word = input.question("Enter a word:")
 };
 
-let simpleScorer;
 
-// function simpleScorer(word) {
-//    word = word.toLowerCase === word.toLowerCase;
-//    let pointValue = "";
 
-//    for (let i = 0; i < word.length; i++) {
+function simpleScorer(word) {
+   word = word.toLowerCase();
+   let pointValue = 1;
 
-//       for (const pointValue in simpleScorer) {
-//          if (simpleScorer[pointValue].includes(word[i])) {
-//             pointValue += `Points for '${word[i]}': ${pointValue}\n`
-//          }
+   for (let i = 0; i < word.length; i++) {
+
+      for (const pointValue in superSimpleScorer) {
+         if (superSimpleScorer[pointValue].includes(word[i])) {
+            pointValue += `Points for '${word[i]}': ${pointValue}\n`
+         }
         
-//       }
-//    }
-//    return pointValue; 
-// }
-// console.log(simpleScorer(pointValue));
+      }
+   }
+   return pointValue; 
+}
+// console.log(simpleScorer(word));
 
 let vowelBonusScorer;
 
@@ -71,7 +76,7 @@ let newPointStructure;
 
 function runProgram() {
    initialPrompt();
-   
+   console.log(simpleScorer(word));
 }
 
 // Don't write any code below this line //
