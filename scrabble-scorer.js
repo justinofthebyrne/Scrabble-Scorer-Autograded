@@ -1,7 +1,7 @@
 // This assignment is inspired by a problem on Exercism (https://exercism.org/tracks/javascript/exercises/etl) that demonstrates Extract-Transform-Load using Scrabble's scoring system. 
 
 const input = require("readline-sync");
-let word = Number;
+let word = "";
 
 
 
@@ -52,18 +52,11 @@ function initialPrompt() {
 
 function simpleScorer(word) {
    word = word.toUpperCase();
-   let pointValue = 0;
-   
+   pointValue = 1;
    for (let i = 0; i < word.length; i++) {
 
-      for (const pointValue in superSimpleScorer) {
-         if (superSimpleScorer[i].includes(word[i])) {
-            pointValue += Number[pointValue]; 
-         }
-         
-      }
    }
-   return pointValue; 
+   return pointValue;
 }
 
 
@@ -94,7 +87,7 @@ function runProgram() {
    initialPrompt();
    console.log(simpleScorer(word));
    // console.log(oldScrabbleScorer(word));
-   console.log(vowelBonusScorer(word));
+   // console.log(vowelBonusScorer(word));
 }
 
 // Don't write any code below this line //
