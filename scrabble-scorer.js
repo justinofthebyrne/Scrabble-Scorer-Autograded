@@ -1,7 +1,8 @@
 // This assignment is inspired by a problem on Exercism (https://exercism.org/tracks/javascript/exercises/etl) that demonstrates Extract-Transform-Load using Scrabble's scoring system. 
 
 const input = require("readline-sync");
-let word = "";
+let word = Number;
+
 
 
 const oldPointStructure = {
@@ -45,19 +46,19 @@ function oldScrabbleScorer(word) {
 function initialPrompt() {
    console.log("Let's play some scrabble!");
    word = input.question("Enter a word:")
-   console.log("Which scoring algorithm would you like to use?");
-   console.log("algorithm name: ");
+   // console.log("Which scoring algorithm would you like to use?");
+   // console.log("algorithm name: ");
 };
 
 function simpleScorer(word) {
-   word = word.toLowerCase();
-   let pointValue = 1;
+   word = word.toUpperCase();
+   let pointValue = 0;
    
-   for (let i = 1; i < word.length; i++) {
+   for (let i = 0; i < word.length; i++) {
 
       for (const pointValue in superSimpleScorer) {
          if (superSimpleScorer[i].includes(word[i])) {
-            pointValue += `Points for '${word[i]}': ${pointValue}\n`
+            pointValue += Number[pointValue]; 
          }
          
       }
@@ -67,9 +68,9 @@ function simpleScorer(word) {
 
 
 let vowelBonusScorer = (word) => {
-   word = word.toLowerCase();
+   word = word.toUpperCase();
 
-   // for ();
+   // for (let );
 
 
    return 3; //This is just a place holder//
@@ -92,7 +93,7 @@ let newPointStructure;
 function runProgram() {
    initialPrompt();
    console.log(simpleScorer(word));
-   console.log(oldScrabbleScorer(word));
+   // console.log(oldScrabbleScorer(word));
    console.log(vowelBonusScorer(word));
 }
 
