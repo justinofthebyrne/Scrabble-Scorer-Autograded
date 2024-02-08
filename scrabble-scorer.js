@@ -4,7 +4,6 @@ const input = require("readline-sync");
 let word = "";
 
 
-
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -24,7 +23,7 @@ const superVowelBonusScorer = {
 };
 
 function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
+	word = word.toUpperCase()
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
@@ -51,12 +50,15 @@ function initialPrompt() {
 };
 
 function simpleScorer(word) {
-   word = word.toUpperCase();
-   pointValue = 1;
-   for (let i = 0; i < word.length; i++) {
+   word = word.toUpperCase()
 
-   }
-   return pointValue;
+   n = word.length; 
+   total = 0; 
+   for (let i = 0; i < word.length; i++) {
+      total = total + 1;
+      
+   } 
+   return total;
 }
 
 
@@ -69,7 +71,9 @@ let vowelBonusScorer = (word) => {
    return 3; //This is just a place holder//
 };
 
-let scrabbleScorer;
+let scrabbleScorer = (word) => {
+
+};
 
 const scoringAlgorithms = {
    1: ["Simple Score:Each letter is worth 1 point"],
@@ -81,7 +85,9 @@ function scorerPrompt() {}
 
 function transform() {};
 
-let newPointStructure;
+let newPointStructure = (word) => {
+
+};
 
 function runProgram() {
    initialPrompt();
