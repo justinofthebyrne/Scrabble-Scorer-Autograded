@@ -49,11 +49,12 @@ function initialPrompt() {
    // console.log("algorithm name: ");
 };
 
-function simpleScorer(word) {
+let simpleScorer = (word) => {
    word = word.toUpperCase()
 
    n = word.length; 
    total = 0; 
+
    for (let i = 0; i < word.length; i++) {
       total = total + 1;
       
@@ -61,15 +62,37 @@ function simpleScorer(word) {
    return total;
 }
 
-
-let vowelBonusScorer = (word) => {
+// vowelBonusScorer: You want to use oldScrabbleScorer as a guide on this one. Just as a guide tho, don't get stuck on it. Think what do I need this function to do?
+let vowelBonusScorer = (word) => {  
    word = word.toUpperCase();
+   let total = 1;
 
-   // for (let );
+
+   for (let i = 0; i < word.length; i++) 
+ 
+      for (const pointValue in superVowelBonusScorer) {
+  
+        if (superVowelBonusScorer[pointValue].includes(word[i])) {
+         console.log("word", word[i]);
+         console.log("pointValue", pointValue);
+         console.log("supervowel", superVowelBonusScorer[pointValue]);
+         //  3 += `Points for '${word[i]}': ${pointValue}\n`
+          
+         //  if (superVowelBonusScorer[pointValue].includes(word[i])) 
+            // 1 += `Points for '${word[i]}': ${pointValue}\n`
+        }
+  
+      }
+   
+    return total;
+    
+  }
+ 
 
 
-   return 3; //This is just a place holder//
-};
+
+   
+
 
 let scrabbleScorer = (word) => {
 
@@ -91,9 +114,9 @@ let newPointStructure = (word) => {
 
 function runProgram() {
    initialPrompt();
-   console.log(simpleScorer(word));
+   // console.log(simpleScorer(word));
    // console.log(oldScrabbleScorer(word));
-   // console.log(vowelBonusScorer(word));
+   console.log(vowelBonusScorer(word));
 }
 
 // Don't write any code below this line //
